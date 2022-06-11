@@ -1,5 +1,5 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+const fs = require('fs');
+// Function that renders the lincense badge
 function renderLicenseBadge(license) {
   if (license === "GitHub") {
     return "![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)";
@@ -14,42 +14,35 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
+// A function to generate markdown for README
 function generateMarkdown(data) {
-  return `
+  let output = `
   
 # ${data.title}
 
-  ## Description
+## Description
   ${data.description}
 
+  ## License
+  ![badge](https://img.shields.io/badge/license-${data.license})
+  <br/>
+  This application is covered by the ${data.license} license.
+  
+
   ## Table of Contents
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [License](#license)
-  - [Contributing](#constributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
+  - [Description](#Description)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [License](#License)
+  - [Contributing](#Constributing)
+  - [Tests](#Tests)
+  - [Questions](#Questions)
 
   ## Installation
   ${data.installation}
 
   ## Usage
   ${data.usage}
-
-  ## License
-  ![badge](https://img.shields.io/badge/license-${data.license})
-  <br/>
-  This application is covered by the ${data.license} license.
 
   ## Contributing
   ${data.contributing}
@@ -63,8 +56,9 @@ function generateMarkdown(data) {
   </br>
   Email me any questions at: ${data.email}
   </br>
-
 `;
+  // returns the data inputs into the README unless there is an error
+  return fs.writeFile('./README.md', output, err => { if (err) throw err });
 }
-
+//Exports generateMardown file
 module.exports = generateMarkdown;
