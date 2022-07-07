@@ -25,7 +25,7 @@ This application is covered by the GitHub license.
   ## Usage
   To create a professional read me
 
-## Screenshot
+## Video
 [![Demo](https://cdn.loom.com/sessions/thumbnails/8ebc2bb232764d4ba59e489adb3159bb-with-play.gif)](https://www.loom.com/share/6dd2a2deef994fcebb4c6c5901d0a04a)
 
   ## Questions
